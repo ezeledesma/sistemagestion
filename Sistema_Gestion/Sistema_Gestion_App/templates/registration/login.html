@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+{% load static %}
+<meta charset="utf-8">
+<title>Log In</title>
+
+<link rel="stylesheet" href="{% static 'login.css' %}"/>
+<!--<link rel="icon" type="image/png" href="imagenes/favicon.png">-->
+
+</head>
+<body>
+  <section>
+	<form name="formulario" id="formulario" method="post">{% csrf_token %}       
+      <table>
+      	<tr>
+          <td colspan="2">
+            <img id="logo" alt="Logo" draggable="false" src="{% static 'imagenes/logo-tradesal.png' %}">
+            {% if form.errors %}
+            <p id="error">Tu usuario y contraseña no son correctos. Por favor, intente otra vez.</p>
+            {% endif %}
+          </td>
+        </tr>
+        {% if user.is_authenticated %}
+        <tr>
+            <td>
+                <a href="{% url 'Stock' %}">Entrar al sistema</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td><img class="icon" alt="Usuario" draggable="false" src="{% static 'imagenes/person.png' %}"></td>
+          <td><input type="text" name="username" id="usuario" maxlength="20" placeholder="Usuario" required autocomplete="off"></td>
+        </tr>
+        <tr>
+          <td><img class="icon" alt="Contraseña" draggable="false" src="{% static 'imagenes/llave.png' %}"></td>
+          <td><input type="password" name="password" id="password" placeholder="Contraseña" required autocomplete="off"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" id="boton" value="Entrar">
+            <input type="hidden" name="next" value="{{ next|escape }}" />
+          </td>
+        </tr>
+        {% endif %}
+	  </table>
+    </form>
+  </section>
+</body>
+</html>

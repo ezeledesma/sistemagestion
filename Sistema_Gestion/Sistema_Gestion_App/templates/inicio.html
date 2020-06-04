@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+{% load static %}
+<meta charset="utf-8">
+<title>Inicio</title>
+
+<link rel="stylesheet" href="{% static 'inicio.css' %}"/>
+</head>
+ 
+ <body>
+  <section>   
+      <table>
+      	<tr>
+          <td colspan="2">
+              <img id="logo" alt="Logo" draggable="false" src="{% static 'imagenes/logo-tradesal.png' %}">
+              <p>Sesión iniciada: {{ user.get_username }}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="{% url 'Stock' %}">Entrar al sistema</a>
+          </td>
+          <td>
+            <a href="{% url 'logout'%}?next={{request.path}}">Cerrar sesión</a>
+          </td>
+        </tr>
+	  </table>
+  </section>
+</body>
+{% endblock %}

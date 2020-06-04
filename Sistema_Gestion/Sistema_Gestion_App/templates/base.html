@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+{% load static %}
+{% if user.is_authenticated %}
+
+{% block content %}
+
+
+{% endblock %}
+
+{% else %}
+<head>
+<link rel="stylesheet" href="{% static 'base.css' %}"/>
+</head>
+ 
+<body>
+ <section>   
+     <table>
+         <tr>
+         <td colspan="2">
+             <img id="logo" alt="Logo" draggable="false" src="{% static 'imagenes/logo-tradesal.png' %}">
+         </td>
+       </tr>
+       <tr>
+           <td>
+           <p>Por favor, inicia sesión</p>
+           </td>
+       </tr>
+       <tr>
+         <td>
+           <a href="{% url 'login'%}?next={{request.path}}">Ir al Log In</a>
+         </td>
+       </tr>
+     </table>
+ </section>
+</body>
+{% endif %}
+
+</html>
