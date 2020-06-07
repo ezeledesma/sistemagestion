@@ -3,81 +3,80 @@
 <head>
 {% load static %}
 <meta charset="utf-8">
-<title>Stock</title>
+<title>Inventario</title>
 
-<link rel="stylesheet" href="{% static 'css/stock.css' %}"/>
+<link rel="stylesheet" href="{% static 'inventario.css' %}"/>
 
 </head>
 
 <body>
-<header>
-    <div class="cabecera">
-    <img id="logo" alt="Logo" draggable="false" src="{% static 'imagenes/logo-tradesal.png' %}">
-    <div class="titulo">Sistema de Gestion Integral - Empresa de productos alimenticios - Tel. 12 3456 7890 Email. info@tradesal.com - Pilar, Bs as. | <a id="prueba">{{ user.get_username }}</a></div>
+
+<nav class="barralateral">
+
+    <div class="menu">
+        <p>Menu</p>
     </div>
-</header>
 
-<nav id="barralateral">
-
-    <a href="{% url 'Stock' %}">
-      <div>
-        <img class="icon" alt="Stock" draggable="false" src="{% static 'imagenes/stock.png' %}">
-        <p>Stock</p>
+    <a href="{% url 'Inventario' %}">
+      <div class="boton">
+        <img class="icon" alt="Inventario" draggable="false" src="{% static 'imagenes/inventario.png' %}">
+        <p>Inventario</p>
       </div>
     </a>
 
     <a href="{% url 'Pedidos' %}">
-        <div>
+        <div class="boton">
           <img class="icon" alt="Pedidos" draggable="false" src="{% static 'imagenes/pedidos.png' %}">
           <p>Pedidos</p>
         </div>
     </a>
     
     <a href="{% url 'Clientes' %}">
-        <div>
-            <img class="icon" alt="Clientes" draggable="false" src="{% static 'imagenes/clientes.jpg' %}">
+        <div class="boton">
+            <img class="icon" alt="Clientes" draggable="false" src="{% static 'imagenes/clientes.png' %}">
             <p>Clientes</p>
         </div>
     </a>
     
     <a href="{% url 'Proveedores' %}">
-        <div>
+        <div class="boton">
             <img class="icon" alt="Proveedores" draggable="false" src="{% static 'imagenes/proveedor.png' %}">
             <p>Proveedores</p>
         </div>
     </a>
 
     <a href="{% url 'Cotizacion' %}">
-        <div>
-            <img class="icon" alt="Cotización" draggable="false" src="{% static 'imagenes/cotizacion.jpg' %}">
+        <div class="boton">
+            <img class="icon" alt="Cotización" draggable="false" src="{% static 'imagenes/cotizacion.png' %}">
             <p>Cotización</p>
-        </div>
-    </a>
-    
-    <a href="{% url 'Salir' %}">
-        <div>
-            <img class="icon" alt="Salir" draggable="false" src="{% static 'imagenes/salir.png' %}">
-            <p>Salir</p>
         </div>
     </a>
 
 </nav>
 
-<section>
-    <table>
+<header class="cabecera">
+    <div class="cabeceraContenido">
+    <div class="titulo">
+        {{ user.get_username }}
+    </div>
+    <a href="{% url 'Salir' %}">
+        <img class="iconCabecera" alt="Salir" draggable="false" src="{% static 'imagenes/salir.png' %}">
+    </a>
+    </div>
+</header>
 
-    </table>
-    <div id="tabla">
+<section>
+    <div class="tabla">
     <div>
 	<table class="header_fijo">
         <thead>
         <tr>
-            <th>Seccion</th><th>Nombre</th><th>Marca</th><th>Unidad</th><th>Cantidad</th><th>Precio</th><th>Codigo</th><th>Lote</th><th>Vencimiento</th>
+            <th class="seccion">Seccion</th><th>Nombre</th><th>Marca</th><th>Unidad</th><th>Cantidad</th><th>Precio</th><th>Codigo</th><th>Lote</th><th>Vencimiento</th><th></th>
         </tr>
         </thead>
         <tbody>
         {% for articulo in articulos %}
-            <tr><td>{{articulo.seccion}}</td><td>{{articulo.nombre}}</td><td>{{articulo.marca}}</td><td>{{articulo.unidad}}</td><td>{{articulo.cantidad}}</td><td>{{articulo.precio}}</td><td>{{articulo.codigo}}</td><td>{{articulo.lote}}</td><td>Vencimiento</td></tr>
+            <tr><td class="seccion">{{articulo.seccion}}</td><td>{{articulo.nombre}}</td><td>{{articulo.marca}}</td><td>{{articulo.unidad}}</td><td>{{articulo.cantidad}}</td><td>{{articulo.precio}}</td><td>{{articulo.codigo}}</td><td>{{articulo.lote}}</td><td>Vencimiento</td></tr>
         {% endfor %}
         </tbody>
     </table>

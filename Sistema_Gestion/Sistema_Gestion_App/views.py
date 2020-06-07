@@ -13,7 +13,7 @@ def inicio(request):
     return render(request, "inicio.html")
 
 @login_required
-def stock (request):
+def inventario (request):
     global articulos
     if request.method=="POST":
         nuevo=Articulos()
@@ -28,7 +28,7 @@ def stock (request):
         nuevo.save()
     print(request.user.first_name)
     articulos=Articulos.objects.filter(nombre__icontains="")
-    return render(request, "stock.html",{"articulos":articulos})
+    return render(request, "inventario.html",{"articulos":articulos})
 
 @login_required
 def pedidos (request):
