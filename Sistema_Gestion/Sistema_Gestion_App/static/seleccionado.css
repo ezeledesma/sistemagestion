@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+.seleccionado {
+    /* background-image: linear-gradient(to top,#3cdb3c,#28832e); */
+    background-image: linear-gradient(to Bottom,#268626,#144617);
+    text-align: center;
+    margin: 12px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    transition: 0.5s ease-in-out 0.05s;
+    width:120px;
+    border: 2px outset #222222;
+    transform: scale(1.1);
+    border-radius: 0px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}

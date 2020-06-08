@@ -11,6 +11,9 @@
 
 body {
     background-color: #535a5a;
+    background: url("imagenes/fondo.jpg");
+	background-size: cover;
+    background-attachment:fixed;
 }
 
 /* Barra lateral */
@@ -20,8 +23,8 @@ body {
     padding:0;
     width:150px;
     height: 640px;
-    background-color: #0b3a02;
-    background-image: linear-gradient(to Bottom,#555555,#1d1d1d);
+    /* background-image: linear-gradient(to Bottom,#555555,#1d1d1d); */
+
 }
 
 .barralateral .menu {
@@ -71,6 +74,21 @@ a:link, a:visited {
     text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
+.seleccionado {
+    /* background-image: linear-gradient(to top,#3cdb3c,#28832e); */
+    background-image: linear-gradient(to Bottom,#268626,#144617);
+    text-align: center;
+    margin: 12px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    transition: 0.5s ease-in-out 0.05s;
+    width:120px;
+    border: 2px outset #222222;
+    transform: scale(1.1);
+    border-radius: 0px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
 /* Fin barra lateral*/
 
 /* Cabecera */
@@ -85,7 +103,7 @@ a:link, a:visited {
 
 .cabeceraContenido {
     display: flex;
-    margin-left: calc(100% - 170px);
+    margin-left: calc(100% - 150px);
 }
 
 .cabecera .titulo {

@@ -54,16 +54,7 @@
 
 </nav>
 
-<header class="cabecera">
-    <div class="cabeceraContenido">
-    <div class="titulo">
-        {{ user.get_username }}
-    </div>
-    <a href="{% url 'Salir' %}">
-        <img class="iconCabecera" alt="Salir" draggable="false" src="{% static 'imagenes/salir.png' %}">
-    </a>
-    </div>
-</header>
+{% include 'cabecera.html' %}
 
 <section>
     Estas en el menu

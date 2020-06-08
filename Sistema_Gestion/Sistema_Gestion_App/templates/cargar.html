@@ -3,8 +3,10 @@
 <head>
 {% load static %}
 <meta charset="utf-8">
-<title>Inventario</title>
+<title>Cargar</title>
 
+<link rel="stylesheet" href="{% static 'menu.css' %}"/>
+<link rel="stylesheet" href="{% static 'seleccionado.css' %}"/>
 <link rel="stylesheet" href="{% static 'inventario.css' %}"/>
 
 </head>
@@ -49,16 +51,7 @@
 
 </nav>
 
-<header class="cabecera">
-    <div class="cabeceraContenido">
-    <div class="titulo">
-        {{ user.get_username }}
-    </div>
-    <a href="{% url 'Salir' %}">
-        <img class="iconCabecera" alt="Salir" draggable="false" src="{% static 'imagenes/salir.png' %}">
-    </a>
-    </div>
-</header>
+{% include 'cabecera.html' %}
 
 <section>
     <div class="tabla">
