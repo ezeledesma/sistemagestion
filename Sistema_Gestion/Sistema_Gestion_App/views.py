@@ -13,8 +13,17 @@ def inicio(request):
     return render(request, "inicio.html")
 
 @login_required
+def menu(request):
+    return render(request, "menu.html")
+
+@login_required
 def inventario (request):
     global articulos
+    articulos=Articulos.objects.filter(nombre__icontains="")
+    return render(request, "inventario.html",{"articulos":articulos})
+
+@login_required
+def cargar (request):
     if request.method=="POST":
         nuevo=Articulos()
         nuevo.seccion=request.POST['Seccion']
@@ -26,9 +35,7 @@ def inventario (request):
         nuevo.codigo=request.POST['Codigo']
         nuevo.lote=request.POST['Lote']
         nuevo.save()
-    print(request.user.first_name)
-    articulos=Articulos.objects.filter(nombre__icontains="")
-    return render(request, "inventario.html",{"articulos":articulos})
+    return render(request, "cargar.html")
 
 @login_required
 def pedidos (request):

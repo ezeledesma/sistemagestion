@@ -69,7 +69,7 @@ a {
 	font-size:15px;
 	padding:10px;
 	border-radius:5px;
-	color:#FFF;
+	color:#FFFFFF;
 	background-color:#1A2537;
 }
 
@@ -79,7 +79,7 @@ a:hover {
 	cursor:pointer;
 }
 
-a:link {
+a:link, a:visited {
     text-decoration: none;
-    color:#333;
+    color:#FFFFFF;
 }

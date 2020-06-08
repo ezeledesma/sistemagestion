@@ -3,7 +3,9 @@ from Sistema_Gestion_App import views
 
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
+    path('menu', views.menu, name="Menu"),
     path('inventario', views.inventario, name="Inventario"),
+    path('cargar', views.cargar, name="Cargar"),
     path('pedidos', views.pedidos, name="Pedidos"),
     path('clientes', views.clientes, name="Clientes"),
     path('proveedores', views.proveedores, name="Proveedores"),

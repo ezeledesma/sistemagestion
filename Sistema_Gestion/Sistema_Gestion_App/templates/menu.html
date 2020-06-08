@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+{% load static %}
+<meta charset="utf-8">
+<title>Menu</title>
+
+<link rel="stylesheet" href="{% static 'menu.css' %}"/>
+
+</head>
+
+<body>
+
+<nav class="barralateral">
+
+    <div class="menu">
+        <p>Menu</p>
+    </div>
+
+    <a href="{% url 'Inventario' %}">
+      <div class="boton">
+        <img class="icon" alt="Inventario" draggable="false" src="{% static 'imagenes/inventario.png' %}">
+        <p>Inventario</p>
+      </div>
+    </a>
+
+    <a href="{% url 'Pedidos' %}">
+        <div class="boton">
+          <img class="icon" alt="Pedidos" draggable="false" src="{% static 'imagenes/pedidos.png' %}">
+          <p>Pedidos</p>
+        </div>
+    </a>
+    
+    <a href="{% url 'Clientes' %}">
+        <div class="boton">
+            <img class="icon" alt="Clientes" draggable="false" src="{% static 'imagenes/clientes.png' %}">
+            <p>Clientes</p>
+        </div>
+    </a>
+    
+    <a href="{% url 'Proveedores' %}">
+        <div class="boton">
+            <img class="icon" alt="Proveedores" draggable="false" src="{% static 'imagenes/proveedor.png' %}">
+            <p>Proveedores</p>
+        </div>
+    </a>
+
+    <a href="{% url 'Cotizacion' %}">
+        <div class="boton">
+            <img class="icon" alt="Cotización" draggable="false" src="{% static 'imagenes/cotizacion.png' %}">
+            <p>Cotización</p>
+        </div>
+    </a>
+
+</nav>
+
+<header class="cabecera">
+    <div class="cabeceraContenido">
+    <div class="titulo">
+        {{ user.get_username }}
+    </div>
+    <a href="{% url 'Salir' %}">
+        <img class="iconCabecera" alt="Salir" draggable="false" src="{% static 'imagenes/salir.png' %}">
+    </a>
+    </div>
+</header>
+
+<section>
+    Estas en el menu
+</section>
+
+</body>
+</html>

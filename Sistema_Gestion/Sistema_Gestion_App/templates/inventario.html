@@ -14,41 +14,36 @@
 <nav class="barralateral">
 
     <div class="menu">
-        <p>Menu</p>
+        <a href="{% url 'Menu' %}">
+            <p>Menu</p>
+        </a>
     </div>
 
     <a href="{% url 'Inventario' %}">
-      <div class="boton">
-        <img class="icon" alt="Inventario" draggable="false" src="{% static 'imagenes/inventario.png' %}">
-        <p>Inventario</p>
-      </div>
+        <div class="seleccionado">
+          <img class="icon" alt="Inventario" draggable="false" src="{% static 'imagenes/inventario.png' %}">
+          <p>Inventario</p>
+        </div>
     </a>
 
-    <a href="{% url 'Pedidos' %}">
+    <a href="{% url 'Cargar' %}">
         <div class="boton">
-          <img class="icon" alt="Pedidos" draggable="false" src="{% static 'imagenes/pedidos.png' %}">
-          <p>Pedidos</p>
+          <img class="icon" alt="Cargar" draggable="false" src="{% static 'imagenes/cargar.png' %}">
+          <p>Cargar</p>
         </div>
     </a>
     
     <a href="{% url 'Clientes' %}">
         <div class="boton">
-            <img class="icon" alt="Clientes" draggable="false" src="{% static 'imagenes/clientes.png' %}">
-            <p>Clientes</p>
+            <img class="icon" alt="Editar" draggable="false" src="{% static 'imagenes/editar.png' %}">
+            <p>Editar</p>
         </div>
     </a>
     
     <a href="{% url 'Proveedores' %}">
         <div class="boton">
-            <img class="icon" alt="Proveedores" draggable="false" src="{% static 'imagenes/proveedor.png' %}">
-            <p>Proveedores</p>
-        </div>
-    </a>
-
-    <a href="{% url 'Cotizacion' %}">
-        <div class="boton">
-            <img class="icon" alt="Cotización" draggable="false" src="{% static 'imagenes/cotizacion.png' %}">
-            <p>Cotización</p>
+            <img class="icon" alt="Reservar" draggable="false" src="{% static 'imagenes/reservar.png' %}">
+            <p>Reservar</p>
         </div>
     </a>
 
@@ -67,56 +62,18 @@
 
 <section>
     <div class="tabla">
-    <div>
 	<table class="header_fijo">
         <thead>
         <tr>
-            <th class="seccion">Seccion</th><th>Nombre</th><th>Marca</th><th>Unidad</th><th>Cantidad</th><th>Precio</th><th>Codigo</th><th>Lote</th><th>Vencimiento</th><th></th>
+            <th>Codigo</th><th>Nombre</th><th>Marca</th><th>Unidad</th><th>Cantidad</th><th>Precio</th><th>Lote</th><th>Vencimiento</th><th>Seccion</th><th></th>
         </tr>
         </thead>
         <tbody>
         {% for articulo in articulos %}
-            <tr><td class="seccion">{{articulo.seccion}}</td><td>{{articulo.nombre}}</td><td>{{articulo.marca}}</td><td>{{articulo.unidad}}</td><td>{{articulo.cantidad}}</td><td>{{articulo.precio}}</td><td>{{articulo.codigo}}</td><td>{{articulo.lote}}</td><td>Vencimiento</td></tr>
+            <tr><td>{{articulo.codigo}}</td><td>{{articulo.nombre}}</td><td>{{articulo.marca}}</td><td>{{articulo.unidad}}</td><td>{{articulo.cantidad}}</td><td>{{articulo.precio}}</td><td>{{articulo.lote}}</td><td>Vencimiento</td><td>{{articulo.seccion}}</td></tr>
         {% endfor %}
         </tbody>
     </table>
-    </div>
-    <div>
-        <table class="cargastock">
-            <form name="cargarstock" id="cargarstock" method="POST">{% csrf_token %}
-            <tr>
-                <td>Cargar Stock</td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Seccion" placeholder="Seccion" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Nombre" placeholder="Nombre" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Marca" placeholder="Marca" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Unidad" placeholder="Unidad" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Cantidad" placeholder="Cantidad" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Precio" placeholder="Precio" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Codigo" placeholder="Codigo" autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Lote" placeholder="Lote" autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" name="Cargar" value="Cargar"></td>
-            </tr>
-            </form>
-        </table>
-    </div>
     </div>
 </section>
 
