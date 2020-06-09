@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+{% load static %}
+<meta charset="utf-8">
+<title>Pedidos</title>
+
+{% include 'links.html' %}
+<link rel="stylesheet" href="{% static 'css/pedidos.css' %}"/>
+
+</head>
+
+<body>
+<div id="centrar">
+<nav class="barralateral">
+
+    <div class="menu">
+        <a href="{% url 'Menu' %}">
+            <p>Menu</p>
+        </a>
+    </div>
+
+    <a href="{% url 'Pedidos' %}">
+        <div class="seleccionado">
+          <img class="icon" alt="Pedidos" draggable="false" src="{% static 'imagenes/pedidos.png' %}">
+          <p>Pedidos</p>
+        </div>
+    </a>
+
+    <a href="{% url 'Cargar' %}">
+        <div class="boton">
+          <img class="icon" alt="Cargar" draggable="false" src="{% static 'imagenes/cargar.png' %}">
+          <p>Cargar</p>
+        </div>
+    </a>
+    
+    <a href="{% url 'Clientes' %}">
+        <div class="boton">
+            <img class="icon" alt="Editar" draggable="false" src="{% static 'imagenes/editar.png' %}">
+            <p>Editar</p>
+        </div>
+    </a>
+    
+    <a href="{% url 'Proveedores' %}">
+        <div class="boton">
+            <img class="icon" alt="Reservar" draggable="false" src="{% static 'imagenes/reservar.png' %}">
+            <p>Reservar</p>
+        </div>
+    </a>
+
+</nav>
+
+{% include 'cabecera.html' %}
+
+<section>
+    Pedidos
+</section>
+
+</div>
+</body>
+</html>

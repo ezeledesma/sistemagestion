@@ -3,7 +3,9 @@
 
 .seleccionado {
     /* background-image: linear-gradient(to top,#3cdb3c,#28832e); */
-    background-image: linear-gradient(to Bottom,#268626,#144617);
+    /*background-image: linear-gradient(to Bottom,#268626,#144617);*/
+/*    background-image: linear-gradient(to Bottom,#919191,#3a3a3a);*/
+    background-image: linear-gradient(to Bottom,#e65b1b,#941073);
     text-align: center;
     margin: 12px;
     padding-top: 10px;

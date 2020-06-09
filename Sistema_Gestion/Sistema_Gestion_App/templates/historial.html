@@ -3,10 +3,10 @@
 <head>
 {% load static %}
 <meta charset="utf-8">
-<title>Inventario</title>
+<title>Historial</title>
 
 {% include 'links.html' %}
-<link rel="stylesheet" href="{% static 'css/inventario.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/historial.css' %}"/>
 
 </head>
 
@@ -21,7 +21,7 @@
     </div>
 
     <a href="{% url 'Inventario' %}">
-        <div class="seleccionado">
+        <div class="boton">
           <img class="icon" alt="Inventario" draggable="false" src="{% static 'imagenes/inventario.png' %}">
           <p>Inventario</p>
         </div>
@@ -49,7 +49,7 @@
     </a>
 
     <a href="{% url 'Historial' %}">
-        <div class="boton">
+        <div class="seleccionado">
             <img class="icon" alt="Historial" draggable="false" src="{% static 'imagenes/historial.png' %}">
             <p>Historial</p>
         </div>
@@ -60,25 +60,22 @@
 {% include 'cabecera.html' %}
 
 <section>
-    <!-- <div class="tabla">
-	<table class="header_fijo">
-        <thead>
-        <tr>
-            <th>Codigo</th><th>Nombre</th><th>Marca</th><th>Unidad</th><th>Cantidad</th><th>Precio</th><th>Lote</th><th>Vencimiento</th><th>Seccion</th><th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for articulo in articulos %}
-            <tr><td>{{articulo.codigo}}</td><td>{{articulo.nombre}}</td><td>{{articulo.marca}}</td><td>{{articulo.unidad}}</td><td>{{articulo.cantidad}}</td><td>{{articulo.precio}}</td><td>{{articulo.lote}}</td><td>Vencimiento</td><td>{{articulo.seccion}}</td></tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div> -->
     <div class="tabla">
         <div class="header">
         <table>
             <tr>
-                <td>Codigo</td><td>Nombre</td><td>Marca</td><td>Unidad</td><td>Cantidad</td><td>Precio</td><td>Lote</td><td>Vencimiento</td><td>Seccion</td>
+                <td>Fecha</td>
+                <td>Operacion</td>
+                <td>Codigo</td>
+                <td>Descripcion</td>
+                <td>Marca</td>
+                <td>Medida</td>
+                <td>Cantidad</td>
+                <td>Lote</td>
+                <td>Vencimiento</td>
+                <td>Deposito</td>
+                <td>Remito</td>
+                <td>Usuario</td>
             </tr>
         </table>
         </div>
@@ -86,7 +83,20 @@
         <table>
             <tbody>
                 {% for articulo in articulos %}
-                <tr><td>{{articulo.codigo}}</td><td>{{articulo.nombre}}</td><td>{{articulo.marca}}</td><td>{{articulo.unidad}}</td><td>{{articulo.cantidad}}</td><td>{{articulo.precio}}</td><td>{{articulo.lote}}</td><td>Vencimiento</td><td>{{articulo.seccion}}</td></tr>
+                <tr>
+                    <td>{{historial.fecha}}</td>
+                    <td>{{historial.operacion}}</td>
+                    <td>{{historial.codigo}}</td>
+                    <td>{{historial.descripcion}}</td>
+                    <td>{{historial.marca}}</td>
+                    <td>{{historial.cantidad}}</td>
+                    <td>{{historial.lote}}</td>
+                    <td>{{historial.vencimiento}}</td>
+                    <td>{{historial.deposito}}</td>
+                    <td>{{historial.remito}}</td>
+                    <td>{{historial.usuario}}</td>
+
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

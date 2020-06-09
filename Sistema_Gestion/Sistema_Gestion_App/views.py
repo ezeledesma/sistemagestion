@@ -1,10 +1,11 @@
 from django.shortcuts import render, HttpResponse
-from Sistema_Gestion_App.models import Articulos
+from Sistema_Gestion_App.models import Articulos, Historial
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 # Globals
 articulos=Articulos()
+v_historial=Historial()
 user=User()
 
 # Views
@@ -38,20 +39,26 @@ def cargar (request):
     return render(request, "cargar.html")
 
 @login_required
+def historial (request):
+    global v_historial
+    v_historial=Historial.objects.filter(nombre__icontains="")
+    return render(request, "historial.html",{"historial":v_historial})
+
+@login_required
 def pedidos (request):
-    return HttpResponse("Pedidos")
+    return render(request, "pedidos.html")
 
 @login_required
 def clientes (request):
-    return HttpResponse("Clientes")
+    return render(request, "clientes.html")
 
 @login_required
 def proveedores (request):
-    return HttpResponse("Proveedores")
+    return render(request, "proveedores.html")
 
 @login_required
 def cotizacion (request):
-    return HttpResponse("Cotizacion")
+    return render(request, "cotizacion.html")
 
 def salir (request):
     return inicio(request)

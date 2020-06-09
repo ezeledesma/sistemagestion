@@ -5,14 +5,13 @@
 <meta charset="utf-8">
 <title>Cargar</title>
 
-<link rel="stylesheet" href="{% static 'menu.css' %}"/>
-<link rel="stylesheet" href="{% static 'seleccionado.css' %}"/>
-<link rel="stylesheet" href="{% static 'inventario.css' %}"/>
+{% include 'links.html' %}
+<link rel="stylesheet" href="{% static 'css/cargar.css' %}"/>
 
 </head>
 
 <body>
-
+<div id="centrar">
 <nav class="barralateral">
 
     <div class="menu">
@@ -54,45 +53,40 @@
 {% include 'cabecera.html' %}
 
 <section>
-    <div class="tabla">
+  <form name="cargarstock" id="cargarstock" method="POST">{% csrf_token %}
     <div>
-        <table class="cargastock">
-            <form name="cargarstock" id="cargarstock" method="POST">{% csrf_token %}
-            <tr>
-                <td>Cargar Stock</td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Seccion" placeholder="Seccion" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Nombre" placeholder="Nombre" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Marca" placeholder="Marca" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Unidad" placeholder="Unidad" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Cantidad" placeholder="Cantidad" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Precio" placeholder="Precio" required autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Codigo" placeholder="Codigo" autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="Lote" placeholder="Lote" autocomplete="off"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" name="Cargar" value="Cargar"></td>
-            </tr>
-            </form>
-        </table>
+        <div>Seccion: </div><input type="text" name="Seccion" required autocomplete="off">
     </div>
+    <div>
+        <div>Nombre: </div><input type="text" name="Nombre" required autocomplete="off">
     </div>
+    <div>
+        <div>Marca: </div><input type="text" name="Marca" required autocomplete="off">
+    </div>
+    <div>
+        <div>Unidad: </div><input type="text" name="Unidad" required autocomplete="off">
+    </div>
+    <div>
+        <div>Cantidad: </div><input type="text" name="Cantidad" required autocomplete="off">
+    </div>
+    <div>
+        <div>Precio: </div><input type="text" name="Precio" required autocomplete="off">
+    </div>
+    <div>
+        <div>Codigo: </div><input type="text" name="Codigo" required autocomplete="off">
+    </div>
+    <div>
+        <div>Lote: </div><input type="text" name="Lote" required autocomplete="off">
+    </div>
+    <div>
+        <div>Vencimiento: </div><input type="text" name="Vencimiento" required autocomplete="off">
+    </div>
+    <div>
+        <input type="submit" name="Cargar" value="Cargar">
+    </div>
+  </form>
 </section>
 
+</div>
 </body>
 </html>

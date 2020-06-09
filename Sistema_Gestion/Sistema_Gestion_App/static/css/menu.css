@@ -10,10 +10,23 @@
 }
 
 body {
-    background-color: #535a5a;
-    background: url("imagenes/fondo.jpg");
+    /*background-color: #535a5a;*/
+    background: url("/static/imagenes/fondo.jpg");
+    /*background-image: linear-gradient(to Right,#e65b1b,#941073);*/
 	background-size: cover;
     background-attachment:fixed;
+}
+
+#centrar {
+    width: 1400px;
+    height: 700px;
+    margin:auto;
+    margin-top: 1%;
+    background-image: linear-gradient(to Right,#e65b1b,#941073);
+    border: 2px solid black;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    box-shadow: 5px 5px 20px black;
 }
 
 /* Barra lateral */
@@ -56,7 +69,8 @@ a:link, a:visited {
 }
 
 .boton {
-    background-image: linear-gradient(to Bottom,#268626,#144617);
+    /*background-image: linear-gradient(to Bottom,#268626,#144617);*/
+    background-image: linear-gradient(to Bottom,#919191,#3a3a3a);
     text-align: center;
     margin: 12px;
     padding-top: 10px;
@@ -94,9 +108,10 @@ a:link, a:visited {
 /* Cabecera */
 
 .cabecera {
-    background-image: linear-gradient(to Bottom,#3eb433,#0b8111);
+    /*background-image: linear-gradient(to Bottom,#3eb433,#0b8111);*/
+    background-image: linear-gradient(to Bottom,#919191,#3a3a3a);
     /* width: calc(100% - 150px); */
-    width: 1150px;
+    width: 1250px;
     height:40px;
     margin-left: 150px;
 }

@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+section {
+    text-align: center;
+}
+
+#cargarstock {
+    margin-top: 10px;
+    /* display: flex;
+    flex-direction: column; */
+    width: 500px;
+    padding: 10px;
+}
+
+#cargarstock div {
+    margin: 10px;
+}
+
+input[type=submit] {
+    width: 200px;
+}
