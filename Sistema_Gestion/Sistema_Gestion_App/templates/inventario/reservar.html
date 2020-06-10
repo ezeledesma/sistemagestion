@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+{% load static %}
+<meta charset="utf-8">
+<title>Inventario | Reservar</title>
+
+{% include 'links.html' %}
+<link rel="stylesheet" href="{% static 'css/reservar.css' %}"/>
+
+</head>
+
+<body>
+<div id="centrar">
+<nav class="barralateral">
+
+    <div class="menu">
+        <a href="{% url 'Menu' %}">
+            <p>Menu</p>
+        </a>
+    </div>
+
+    <a href="{% url 'Inventario' %}">
+        <div class="boton">
+          <img class="icon" alt="Inventario" draggable="false" src="{% static 'imagenes/inventario.png' %}">
+          <p>Inventario</p>
+        </div>
+    </a>
+
+    <a href="{% url 'Cargar' %}">
+        <div class="boton">
+          <img class="icon" alt="Cargar" draggable="false" src="{% static 'imagenes/cargar.png' %}">
+          <p>Cargar</p>
+        </div>
+    </a>
+
+    <a href="{% url 'Editar' %}">
+        <div class="boton">
+            <img class="icon" alt="Editar" draggable="false" src="{% static 'imagenes/editar.png' %}">
+            <p>Editar</p>
+        </div>
+    </a>
+    
+    <a href="{% url 'Reservar' %}">
+        <div class="seleccionado">
+            <img class="icon" alt="Reservar" draggable="false" src="{% static 'imagenes/reservar.png' %}">
+            <p>Reservar</p>
+        </div>
+    </a>
+
+    <a href="{% url 'Historial' %}">
+        <div class="boton">
+            <img class="icon" alt="Historial" draggable="false" src="{% static 'imagenes/historial.png' %}">
+            <p>Historial</p>
+        </div>
+    </a>
+
+</nav>
+
+{% include 'cabecera.html' %}
+
+<section>
+    Reservar
+</section>
+
+</div>
+</body>
+</html>

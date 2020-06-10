@@ -3,7 +3,7 @@
 <head>
 {% load static %}
 <meta charset="utf-8">
-<title>Cargar</title>
+<title>Inventario | Cargar</title>
 
 {% include 'links.html' %}
 <link rel="stylesheet" href="{% static 'css/cargar.css' %}"/>
@@ -34,17 +34,24 @@
         </div>
     </a>
 
-    <a href="{% url 'Clientes' %}">
+    <a href="{% url 'Editar' %}">
         <div class="boton">
             <img class="icon" alt="Editar" draggable="false" src="{% static 'imagenes/editar.png' %}">
             <p>Editar</p>
         </div>
     </a>
     
-    <a href="{% url 'Proveedores' %}">
+    <a href="{% url 'Reservar' %}">
         <div class="boton">
             <img class="icon" alt="Reservar" draggable="false" src="{% static 'imagenes/reservar.png' %}">
             <p>Reservar</p>
+        </div>
+    </a>
+
+    <a href="{% url 'Historial' %}">
+        <div class="boton">
+            <img class="icon" alt="Historial" draggable="false" src="{% static 'imagenes/historial.png' %}">
+            <p>Historial</p>
         </div>
     </a>
 

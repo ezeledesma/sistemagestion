@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 # Globals
 articulos=Articulos()
-v_historial=Historial()
+historiales=Historial()
 user=User()
 
 # Views
@@ -21,7 +21,7 @@ def menu(request):
 def inventario (request):
     global articulos
     articulos=Articulos.objects.filter(nombre__icontains="")
-    return render(request, "inventario.html",{"articulos":articulos})
+    return render(request, "inventario/inventario.html",{"articulos":articulos})
 
 @login_required
 def cargar (request):
@@ -36,13 +36,21 @@ def cargar (request):
         nuevo.codigo=request.POST['Codigo']
         nuevo.lote=request.POST['Lote']
         nuevo.save()
-    return render(request, "cargar.html")
+    return render(request, "inventario/cargar.html")
+
+@login_required
+def editar(request):
+    return render(request, "inventario/editar.html")
+
+@login_required
+def reservar(request):
+    return render(request, "inventario/reservar.html")
 
 @login_required
 def historial (request):
-    global v_historial
-    v_historial=Historial.objects.filter(nombre__icontains="")
-    return render(request, "historial.html",{"historial":v_historial})
+    global historiales
+    historiales=Historial.objects.filter(descripcion__icontains="")
+    return render(request, "inventario/historial.html",{"historiales":historiales})
 
 @login_required
 def pedidos (request):
