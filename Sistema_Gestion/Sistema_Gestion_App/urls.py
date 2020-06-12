@@ -14,6 +14,7 @@ urlpatterns = [
     path('proveedores', views.proveedores, name="Proveedores"),
     path('cotizacion', views.cotizacion, name="Cotizacion"),
     path('salir', views.salir, name="Salir"),
+    path('nombre', views.nombre, name="Nombre"),
 ]
 
 #Add Django site authentication urls (for login, logout, password management)

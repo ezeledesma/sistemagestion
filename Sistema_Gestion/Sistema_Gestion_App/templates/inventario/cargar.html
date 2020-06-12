@@ -7,6 +7,7 @@
 
 {% include 'links.html' %}
 <link rel="stylesheet" href="{% static 'css/cargar.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/inventario.css' %}"/>
 
 </head>
 
@@ -60,39 +61,88 @@
 {% include 'cabecera.html' %}
 
 <section>
-  <form name="cargarstock" id="cargarstock" method="POST">{% csrf_token %}
-    <div>
-        <div>Seccion: </div><input type="text" name="Seccion" required autocomplete="off">
-    </div>
-    <div>
-        <div>Nombre: </div><input type="text" name="Nombre" required autocomplete="off">
-    </div>
-    <div>
-        <div>Marca: </div><input type="text" name="Marca" required autocomplete="off">
-    </div>
-    <div>
-        <div>Unidad: </div><input type="text" name="Unidad" required autocomplete="off">
-    </div>
-    <div>
-        <div>Cantidad: </div><input type="text" name="Cantidad" required autocomplete="off">
-    </div>
-    <div>
-        <div>Precio: </div><input type="text" name="Precio" required autocomplete="off">
-    </div>
-    <div>
-        <div>Codigo: </div><input type="text" name="Codigo" required autocomplete="off">
-    </div>
-    <div>
-        <div>Lote: </div><input type="text" name="Lote" required autocomplete="off">
-    </div>
-    <div>
-        <div>Vencimiento: </div><input type="text" name="Vencimiento" required autocomplete="off">
-    </div>
-    <div>
-        <input type="submit" name="Cargar" value="Cargar">
+  <form name="ingresostock" id="ingresostock" method="POST">{% csrf_token %}
+    
+    <div class="ingresocaja">
+        <div>Ingreso</div>
+        <div><p>Fecha: &nbsp;</p><input type="text" name="Fecha" placeholder="(opcional) aaaa-mm-dd" autocomplete="off"></div>
+        <div><p>Codigo: &nbsp;</p><input type="text" name="Codigo" required autocomplete="off"></div>
+        <div><p>Descripcion: &nbsp;</p><input type="text" name="Descripcion" required autocomplete="off"></div>
+        <div><p>Marca: &nbsp;</p><input type="text" name="Marca" required autocomplete="off"></div>
+        <div><p>Medida: &nbsp;</p><input type="text" name="Medida" required autocomplete="off"></div>
+        <div><p>Cantidad: &nbsp;</p><input type="text" name="Cantidad" required autocomplete="off"></div>
+        <div><p>Lote: &nbsp;</p><input type="text" name="Lote" required autocomplete="off"></div>
+        <div><p>Vencimiento: &nbsp;</p><input type="text" name="Vencimiento" placeholder="aaaa-mm-dd" required autocomplete="off"></div>
+        <div><p>Deposito: &nbsp;</p><input type="text" name="Deposito" required autocomplete="off"></div>
+        <div><input type="submit" name="Ingresar" value="Ingresar"></div>
     </div>
   </form>
+
+  <form name="ingresostock" id="ingresostock" method="POST">{% csrf_token %}
+    
+    <div class="ingresocaja">
+        <div>Egreso</div>
+        <div><p>Fecha: &nbsp;</p><input type="text" name="Fecha" placeholder="(opcional) aaaa-mm-dd" autocomplete="off"></div>
+        <div><p>Codigo: &nbsp;</p><input type="text" name="Codigo" required autocomplete="off"></div>
+        <div><p>Cantidad: &nbsp;</p><input type="text" name="Cantidad" required autocomplete="off"></div>
+        <div><p>Deposito: &nbsp;</p><input type="text" name="Deposito" required autocomplete="off"></div>
+        <div><input type="submit" name="Retirar" value="Retirar"></div>
+    </div>
+  </form>
+
+  <form name="ingresostock" id="ingresostock" method="POST">{% csrf_token %}
+    
+    <div class="ingresocaja">
+        <div>Buscador de articulos</div>
+        <div><p>Codigo: &nbsp;</p><input type="text" name="Codigo" autocomplete="off"></div>
+        <div><p>Descripcion: &nbsp;</p><input type="text" name="Descripcion" autocomplete="off"></div>
+        <div><p>Marca: &nbsp;</p><input type="text" name="Marca" autocomplete="off"></div>
+        <div><p>Medida: &nbsp;</p><input type="text" name="Medida" autocomplete="off"></div>
+        <div><p>Lote: &nbsp;</p><input type="text" name="Lote" autocomplete="off"></div>
+        <div><p>Deposito: &nbsp;</p><input type="text" name="Deposito" autocomplete="off"></div>
+        <div><input type="submit" name="Buscar" value="Buscar"></div>
+    </div>
+  </form>
+
 </section>
+
+<section>
+    <div class="tabla">
+        <div class="header">
+        <table>
+            <tr>
+                <td>Codigo</td>
+                <td>Descripcion</td>
+                <td>Marca</td>
+                <td>Medida</td>
+                <td>Cantidad</td>
+                <td>Lote</td>
+                <td>Vencimiento</td>
+                <td>Deposito</td>
+            </tr>
+        </table>
+        </div>
+        <div class="content">
+        <table>
+            <tbody>
+                {% for historial in historiales %}
+                <tr>
+                    <td>{{historial.codigo}}</td>
+                    <td>{{historial.descripcion}}</td>
+                    <td>{{historial.marca}}</td>
+                    <td>{{historial.medida}}</td>
+                    <td>{{historial.cantidad}}</td>
+                    <td>{{historial.lote}}</td>
+                    <td>{{historial.vencimiento}}</td>
+                    <td>{{historial.deposito}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</section>
+
 
 </div>
 </body>

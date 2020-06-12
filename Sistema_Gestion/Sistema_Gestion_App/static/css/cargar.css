@@ -2,21 +2,62 @@
 /* CSS Document */
 
 section {
+    display: flex;
+}
+
+#ingresostock {
+    display: flex;
+    margin-top: 20px;
+    width: 350px;
     text-align: center;
+    justify-content: flex-end;
 }
 
-#cargarstock {
-    margin-top: 10px;
-    /* display: flex;
-    flex-direction: column; */
-    width: 500px;
-    padding: 10px;
+.ingresocaja {
+   background-color: #332f2f;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   height: fit-content;
 }
 
-#cargarstock div {
-    margin: 10px;
+
+.ingresocaja div {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.ingresocaja p {
+    text-align: right;
+    width:120px;
+    color:whitesmoke;
 }
 
 input[type=submit] {
-    width: 200px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+input[type=text] {
+    margin-right: 10px;
+}
+
+.ingresocaja div:first-child {
+    color:whitesmoke;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* tabla */
+
+.tabla {
+    margin-left: 10px;
+    height: 200px;
+}
+
+.content {
+    overflow-y: scroll;
+    word-wrap: break-word;
 }
